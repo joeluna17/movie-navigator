@@ -8,10 +8,11 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 type CardProps = {
     title:string,
     overview: string,
-    imgUrl: string
+    imgUrl: string,
+    votes: number
 }
 
-const MovieCard: React.FC<CardProps> = ({ title, overview, imgUrl } ) => {
+const MovieCard: React.FC<CardProps> = ({ title, overview, imgUrl, votes }) => {
 
   return (
     <Card sx={{ maxWidth: 345 }} style={{minHeight:'350px'}}>
@@ -29,6 +30,7 @@ const MovieCard: React.FC<CardProps> = ({ title, overview, imgUrl } ) => {
           <Typography variant="body2" color="text.secondary" style={{ overflowY:'hidden', maxHeight:'80px' }}>
             {overview}
           </Typography>
+          <p><strong>{votes}</strong></p>
         </CardContent>
       </CardActionArea>
       <CardActions>

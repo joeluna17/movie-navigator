@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import { fetchPopularMediaAsync } from '../../features/movies/movieService';
 
@@ -32,7 +33,9 @@ const MovieList: React.FC = () => {
                 {movies && movies.results.map((movie:any, index:number) => {
                 return (
                 <Grid item key={index}>
-                     <MovieCard  title={ movie.title || movie.name } overview={movie.overview} imgUrl={movie.backdrop_path} />
+                    <Link to={`/needurl/${movie.id}`}>
+                     <MovieCard title={movie.title || movie.name} overview={movie.overview} imgUrl={movie.backdrop_path} votes={movie.vote_average} />
+                    </Link>
                 </Grid>
                 )
                 })}
